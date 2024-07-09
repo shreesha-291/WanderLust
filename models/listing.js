@@ -9,8 +9,7 @@ const listingSchema= new Schema({
     description: String,
     image:{
         filename: {
-          type: String,
-          required: true
+          type: String
         }
     },
     price: Number,
