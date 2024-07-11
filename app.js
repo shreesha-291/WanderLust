@@ -3,12 +3,21 @@ const mongoose = require('mongoose');
 const app = express();
 const Listing=require("./models/listing.js");
 const path=require("path");
-const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust";
 const methodOveride = require('method-override');
+const ejsmate = require('ejs-mate');
+
+const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust";
+
 app.set('view engine','ejs');
 app.set("views",path.join(__dirname,"views"))
+
 app.use(express.urlencoded({extended:true}));
 app.use(methodOveride("_method"));
+app.engine('ejs', ejsmate);
+app.use(express.static(path.join(__dirname,"public")));
+
+
+
 async function main(){
     await mongoose.connect(MONGO_URL);
 }
