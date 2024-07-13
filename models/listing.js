@@ -12,7 +12,8 @@ const listingSchema= new Schema({
           type: String,
         },
         url:{
-            type: String
+            type: String,
+            default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrGy8kBdmr-stPoGN1iWRERkegTUfhIjmC4w&s"
         }
     },
     price: Number,
