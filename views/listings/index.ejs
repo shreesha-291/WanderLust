@@ -6,8 +6,8 @@
     </form> -->
 <div class="row row-cols-lg-3-md-2 row-cols-sm-1">
     <% for(let listing of alllistings){%>
-        <a href="/listings/<%= listing.id %>" class="card col listing-link" style="width: 23rem; text-decoration: none; color: inherit;">
-    <div class="card col" style="width: 23rem">
+        <a href="/listings/<%= listing.id %>" class="card col " style="width: 23rem; text-decoration: none; color: inherit;">
+    <div class="card col card" style="width: 23rem">
       <img
         src="<%= listing.image.url %>"
         class="card-img-top"

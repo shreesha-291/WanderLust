@@ -56,6 +56,7 @@ body{
 .card{
     border: none !important;
     margin-bottom: 2rem;
+    margin-right: 0.5rem;
 }
 
 .card-img-top{
@@ -100,4 +101,11 @@ body{
 .show-card{
     padding-left: 0;
     padding-right: 0;
+}
+
+/* //review card */
+.card-rev-del{
+    border:0.5px solid grey !important;
+    border-radius: 16px;
+    padding: 0.25rem
 }
