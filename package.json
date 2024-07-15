@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "ejs-mate": "^4.0.0",
     "joi": "^17.13.3"
   }
