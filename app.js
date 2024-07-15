@@ -9,8 +9,28 @@ const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
 const listings =require("./routes/listing.js");
 const reviews =require("./routes/review.js");
+const session = require('express-session');
+const flash = require('connect-flash');
 
+const sessionOptions={
+    secret:"mysupersecretcode",
+    resave:false,
+    saveUninitialized:true,
+    cookie:{
+        expires:Date.now() +7 * 24 * 60 * 60 * 1000,
+        maxAge:7 * 24 * 60 * 60 * 1000,
+        httpOnly:true
 
+    }
+};
+
+//new route
+app.get('/', (req, res) => {
+    res.send("hi,I am root");
+});
+
+app.use(session(sessionOptions));
+app.use(flash())
 
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "views"))
@@ -33,11 +53,12 @@ main().
         console.error("Error connecting to MongoDB", err);
     })
 
-//new route
-app.get('/', (req, res) => {
-    res.send("hi,I am root");
-});
-
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    console.log(res.locals.success);
+    next();
+})
 
 app.use("/listings",listings)
 app.use("/listings/:id/reviews",reviews)
