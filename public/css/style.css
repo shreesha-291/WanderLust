@@ -11,6 +11,10 @@ body{
     height: 5rem;
     background-color: white;
 }
+.explore {
+    margin-left: 0;
+}
+  
 .row{
     display: flex !important;
     justify-content: center !important;

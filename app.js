@@ -36,9 +36,9 @@ const sessionOptions={
 };
 
 //new route
-app.get('/', (req, res) => {
-    res.send("hi,I am root");
-});
+// app.get('/', (req, res) => {
+//     res.send("hi,I am root");
+// });
 
 app.use(session(sessionOptions));
 app.use(flash())
@@ -57,7 +57,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOveride("_method"));
 app.engine('ejs', ejsmate);
 app.use(express.static(path.join(__dirname, "public")));
-
+app.set('views', path.join(__dirname, 'views'));
 
 
 async function main() {
@@ -89,8 +89,9 @@ app.use((req, res, next) => {
 app.use("/listings",listingRouter)
 app.use("/listings/:id/reviews",reviewRouter)
 app.use("/",userRouter);
-
-
+// app.post("listings/search",(req, res) => {
+//     res.render("hai")
+// })
 // app.get('/testlisting',async (req,res)=>{
 //       let samplelisting =new listing({
 //         title: "My new home",
