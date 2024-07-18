@@ -109,3 +109,10 @@ body{
     border-radius: 16px;
     padding: 0.25rem
 }
+
+/* Map */
+
+#map { 
+    height:25rem;
+    width: 45vw;
+}
